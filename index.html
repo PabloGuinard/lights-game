@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="playsCount"></p>
+    <i class="fa fa-gear" id="gear"></i>
+    <section>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div class="case"></div>
+        <div id="button_container" class="not_displayed button_container">
+            <p>You won !</p>
+            <p id="score"></p>
+            <button id="button">Replay</button>
+        </div>
+    </section>
+    <div id="popup" class="not_displayed popup">
+        <h2>Settings</h2>
+        <form id="form_settings">
+            <div class="label_input">
+                <label for="grid_size">Grid size</label>
+                <input class="input_settings" type="number" id="grid_size" min="3" max="10" required="required">
+            </div>
+            <div class="label_input">
+                <label for="nb_shuffle">Shuffles amount</label>
+                <input class="input_settings" type="number" id="nb_shuffles" min="1" max="50" required="required">
+            </div>
+            <div class="label_input">
+                <p id="qwerty">AWSD</p>
+                <div id="checkbox_keyboard">
+                    <input type="checkbox" id="keyboard" checked>
+                    <label for="keyboard" id="checkbox_input"></label>
+                </div>
+                <p id="azerty">ZQSD</p>
+            </div>
+            <div>
+                <button type="reset" id="cancel_settings">Cancel</button>
+                <button id="save_settings">Save</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
