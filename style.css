@@ -53,6 +53,13 @@ section{
     font-size: 2rem;
 }
 
+#interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(70vh + 1px) ;
+}
+
 #button_container:after{
     content: ' ';
     width: 60%;
@@ -87,16 +94,14 @@ section{
     background-color: var(--yellow);
 }
 
-#playsCount, button{
+#playsCount, button, #score{
     font-size: 3rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 50px;
 }
 
 #playsCount{
-    position: absolute;
-    top: 20px;
+    color: var(--yellow);
 }
 
 button{
@@ -248,9 +253,15 @@ input[type=checkbox]:after{
 }
 
 @media (max-width: 767px) {
-    .button_container, button, #form_settings div button, #form_settings div input, #form_settings, h2, .label_input{
+    .button_container, button, #form_settings div button, #form_settings div input, #form_settings, h2, .label_input, #score{
         font-size: 1rem;
     }
+
+    #interface{
+        width: calc(80vw + 1px);
+        justify-content: space-around;
+    }
+
     section{
         width: calc(80vw + 1px);
         height: 80vw;
