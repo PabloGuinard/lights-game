@@ -3,13 +3,15 @@ box = box[0]
 const caseArray = document.getElementsByClassName('case')
 const playsCount = document.getElementById('playsCount')
 const button = document.getElementById('button')
-const buttonContainer = document.getElementById('button_container')
+const winPopup = document.getElementById('win_popup')
 const gear = document.getElementById('gear')
 const popup = document.getElementById('popup')
 const buttonCancel = document.getElementById('cancel_settings')
 const formSettings = document.getElementById('form_settings')
 const inputSettingsArray = document.getElementsByClassName('input_settings')
 const checkboxKeyboard = document.getElementById('keyboard')
+const score = document.getElementById('score')
+const popupsContainer = document.getElementById('popup_container')
 let root = document.querySelector(':root')
 
 let gridSize = 4
@@ -113,14 +115,16 @@ function endOfGame(){
     switchFocus(0, 0, true)
     isWon = true
     areCasesActives = false
-    buttonContainer.classList.remove('not_displayed')
+    score.innerHTML = "Score : " + nbPlays
+    winPopup.classList.remove('not_displayed')
+    popupsContainer.style.zIndex = 2
 }
 
 function updateCasesAmount(amount){
     while(caseArray.length > 0)
         caseArray[0].remove()
     for (let cpt = 0; cpt < Math.pow(amount, 2); cpt++) {
-        buttonContainer.insertAdjacentHTML("beforebegin", '<div class="case"></div>')
+        popupsContainer.insertAdjacentHTML("beforebegin", '<div class="case"></div>')
     }
 }
 
@@ -133,11 +137,12 @@ function onRestartClick(){
         caseArray[index].classList.remove('lighted')
     }
     updateCounter(0)
-    buttonContainer.classList.add('not_displayed')
+    winPopup.classList.add('not_displayed')
     shuffle()
     isWon = false
     areCasesActives = true
     switchFocus(0, 0)
+    popupsContainer.style.zIndex = -1
 }
 
 gear.addEventListener('click', function(){
@@ -146,6 +151,7 @@ gear.addEventListener('click', function(){
 
 function onGearClick(){
     if(isGearActive){
+        popupsContainer.style.zIndex = 2
         switchFocus(1, 1, true)
         document.getElementById('grid_size').focus()
         areCasesActives = false
@@ -158,6 +164,7 @@ function onGearClick(){
 
 function closeSettings(){
     areCasesActives = true
+    popupsContainer.style.zIndex = -1
     isGearActive = true
     addAnimation(gear, 'rotateGear')
     gear.classList.remove('grey')
