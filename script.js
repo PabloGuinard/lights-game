@@ -4,7 +4,6 @@ const caseArray = document.getElementsByClassName('case')
 const playsCount = document.getElementById('playsCount')
 const button = document.getElementById('button')
 const buttonContainer = document.getElementById('button_container')
-const score = document.getElementById('score')
 const gear = document.getElementById('gear')
 const popup = document.getElementById('popup')
 const buttonCancel = document.getElementById('cancel_settings')
@@ -92,6 +91,8 @@ function toggleLightCross(i, j){
 function updateCounter(value){
     nbPlays = value
     playsCount.innerHTML = nbPlays
+    console.log(playsCount);
+    console.log(nbPlays);
 }
 
 function shuffle(){
@@ -112,7 +113,6 @@ function endOfGame(){
     switchFocus(0, 0, true)
     isWon = true
     areCasesActives = false
-    score.innerHTML = 'Score : ' + nbPlays
     buttonContainer.classList.remove('not_displayed')
 }
 
